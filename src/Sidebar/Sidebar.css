@@ -17,47 +17,32 @@
 
 button{
     color: #171717;
-    background-color: #abb1b4;
+    background-color: #39b0eb;
     border: none;
-    padding: 8px;
+    padding: 8px 10px;
     display: block;
     margin: 0 auto;
-    border-radius: 5px;
-}
-
-
-.sidebar{
-    background-color: #171717;
-    color: #b4b4b4;
-    height: 100vh;
-    width: 320px;
-}
-
-.logo{
-    width:136px;
-    padding: 24px;
-    display: block;
-    margin: 0 auto;
-}
-
-button{
-    color: #171717;
-    background-color: #abb1b4;
-    border: none;
-    padding: 8px;
-    display: block;
-    margin: 0 auto;
-    border-radius: 5px;
+    border-radius: 12px;
     cursor: pointer;
+    max-width: fit-content;
+    border-radius: 5px;
 }
 
-button span{
-    font-size: 20px;
+button p{
+    color: #39b0eb;
+}
+
+h5{
+    color: rgba(180, 180, 180, 0.814);
+    margin: 0 24px;
+    margin-top: 56px;
+    padding: 0;
+    font-size: 12px;
 }
 
 .history {
-    margin: 10px;
-    padding: 10px;
+    margin: 0 10px;
+    padding: 0;
     height: 100%;
 }
 
@@ -65,9 +50,9 @@ button span{
     list-style-type: none;
     cursor: pointer;
     padding: 2px 5px;
-    margin-bottom: 0.3rem;
     font-size: 14px;
-    border: solid 8px transparent;
+    border: solid 10px transparent;
+    position: relative;
 }
 
 .history li:hover{
@@ -81,4 +66,24 @@ button span{
     font-size: 14px;
     text-align: center;
     border-top: solid 0.25px rgba(255,255,255,0.5);
+}
+
+.fa-trash {
+    opacity: 0;
+    position: absolute;
+    right: 0;
+}
+
+.history li:hover .fa-trash {
+    opacity: 1;
+    color: #fff;
+}
+
+.fa-trash:hover {
+    color: #39b0eb !important;
+}
+
+.highlighted {
+    background-color: rgba(180, 180, 180, 0.05);
+    border-radius: 10px;
 }
