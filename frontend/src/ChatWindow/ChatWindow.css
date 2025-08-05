@@ -1,6 +1,6 @@
 
 .chatWindow{
-    background-color: #212121;
+    background-color: #605f5f00;
     height: 100vh;
     width: 100%;
     display: flex;
@@ -21,19 +21,20 @@
 
 .navbar span{
     margin: 1rem 2rem;
-    font-size: 24px;
+    color: #ea981eff;
+    font-size:30px;
+    font-weight: 550;
 }
 
 .userIconDiv i{
-    background-color: rgb(240, 82, 240);
+    background-color: #eaad1e;
     padding: 0.3em;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 21px;
 }
 
 /* chat input */
-
 .chatInput {
     width: 100%;
     display: flex;

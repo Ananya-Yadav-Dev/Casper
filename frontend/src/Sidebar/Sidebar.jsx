@@ -67,7 +67,6 @@ export default function Sidebar() {
       //     console.log("Deleted threadId:", threadId);
       // console.log("Current threadId:", currThreadId);
       if (threadId === currThreadId) {
-        console.log("➡️ Switching to new chat...");
         createNewChat();
       }
       setAllThreads((prev) =>
@@ -80,7 +79,7 @@ export default function Sidebar() {
 
   return (
     <section className="sidebar">
-      <img src="src/assets/Logo.png" alt="gpt logo" className="logo"></img>
+      <img src="/assets/LOGO1.png" alt="gpt logo" className="logo"></img>
       <button onClick={createNewChat}>
         New Chat <i className="fa-solid fa-comment"></i>
       </button>

@@ -41,8 +41,6 @@ export default function ChatWindow() {
     }
     setLoading(false);
   };
-
-  //append new chat to prev chats
   useEffect(() => {
     if (prompt && reply) {
       setPrevChats(prevChats =>( [
@@ -66,7 +64,7 @@ export default function ChatWindow() {
   return (
     <div className="chatWindow">
       <div className="navbar">
-        <span>Casper</span>
+        <span>Phoenix</span>
         <div className="userIconDiv" onClick={handleProfileClick}>
           <span>
             <i className="fa-solid fa-user"></i>

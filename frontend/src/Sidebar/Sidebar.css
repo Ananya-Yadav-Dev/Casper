@@ -19,7 +19,7 @@ button{
     color: #171717;
     font-size: 14px;
     font-weight: 550;
-    background-color: #39b0eb;
+    background-color: #eaad1e;
     border: none;
     padding: 8px 14px;
     display: block;
@@ -30,12 +30,8 @@ button{
     border-radius: 5px;
 }
 
-button p{
-    color: #39b0eb;
-}
-
 button:hover{
-    background-color: #699fbc;
+    background-color: #e8791e;
 }
 
 h5{
