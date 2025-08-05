@@ -31,3 +31,10 @@
 pre{
     white-space: pre-wrap;
 }
+
+.errorMessage {
+  color: rgb(199, 70, 70);
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+}

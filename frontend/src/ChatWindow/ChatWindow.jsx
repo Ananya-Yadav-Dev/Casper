@@ -90,7 +90,7 @@ export default function ChatWindow() {
       <div className="chatInput">
         <div className="inputBox">
           <input
-            placeholder="Ask Casper"
+            placeholder="Ask Phoenix"
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
             onKeyDown={(e) => (e.key == "Enter" ? getReply() : "")}
@@ -99,7 +99,7 @@ export default function ChatWindow() {
             <i className="fa-solid fa-arrow-up"></i>
           </div>
         </div>
-        <p className="info">Casper can make mistakes. Check important info.</p>
+        <p className="info">Phoenix can make mistakes. Check important info.</p>
       </div>
     </div>
   );

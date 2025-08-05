@@ -12,7 +12,7 @@ const getGeminiAPIResponse = async (message) => {
     return response.text();
   } catch (err) {
     console.error("Gemini Error:", err);
-    return "Error from Gemini";
+    return "Something went wrong";
   }
 };
 

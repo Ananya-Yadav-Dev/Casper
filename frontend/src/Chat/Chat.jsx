@@ -9,14 +9,12 @@ export default function Chat() {
   const { newChat, prevChats, reply } = useContext(MyContext);
   const [latestReply, setLatestReply] = useState(null);
 
-  const safePrevChats = Array.isArray(prevChats) ? prevChats : [];
-
   useEffect(() => {
     if (reply === null) {
       setLatestReply(null);
       return;
     }
-    if (!safePrevChats.length) return;
+    if (!prevChats.length) return;
 
     const content = reply.split(" ");
     let idx = 0;
@@ -27,16 +25,21 @@ export default function Chat() {
     }, 40);
 
     return () => clearInterval(interval);
-  }, [safePrevChats, reply]);
+  }, [prevChats, reply]);
 
   return (
     <>
       {newChat && <h1>Start a New Chat!</h1>}
       <div className="chats">
-        {safePrevChats.slice(0, -1).map((chat, idx) => (
-          <div className={chat.role === "user" ? "userDiv" : "botDiv"} key={idx}>
+        {prevChats.slice(0, -1).map((chat, idx) => (
+          <div
+            className={chat.role === "user" ? "userDiv" : "botDiv"}
+            key={idx}
+          >
             {chat.role === "user" ? (
               <p className="userMessage">{chat.content}</p>
+            ) : chat.content === "Something went wrong" ? (
+              <p style={{ color: "red", fontWeight: "bold" }}>{chat.content}</p>
             ) : (
               <ReactMarkdown rehypePlugins={[rehypeHighlight]}>
                 {chat.content}
@@ -45,12 +48,12 @@ export default function Chat() {
           </div>
         ))}
 
-        {safePrevChats.length > 0 && (
+        {prevChats.length > 0 && (
           <>
             {latestReply === null ? (
               <div className="botDiv" key={"non-typing"}>
                 <ReactMarkdown rehypePlugins={[rehypeHighlight]}>
-                  {safePrevChats[safePrevChats.length - 1].content}
+                  {prevChats[prevChats.length - 1].content}
                 </ReactMarkdown>
               </div>
             ) : (
