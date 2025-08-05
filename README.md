@@ -1,105 +1,110 @@
-Thanks! Based on your update, here’s the **clean and accurate `README.md`** for your project **Phoenix**, matching exactly your tech stack:
 
-* **Frontend:** React (with Vite)
-* **Backend:** Node.js (Express)
-* **Database:** MongoDB Atlas
-* **API integration:** via `.env`
-* You've also mentioned adding an **image**, so I’ll include the placeholder for it too.
-
----
-
-```markdown
 # 🔥 Phoenix - Your AI Chat Companion
 
-Phoenix is a full-stack AI chatbot that enables users to have smart, multi-turn conversations powered by LLM APIs. Built using Vite + React on the frontend and Node.js + Express on the backend, it supports persistent chat history via MongoDB Atlas.
+Phoenix is a full-stack AI chatbot enabling users to engage in smart, multi-turn conversations powered by LLM APIs. Built using **Vite + React** on the frontend and **Node.js + Express** on the backend, it stores persistent chat history using **MongoDB Atlas**.
 
-![Phoenix Screenshot](/assets/preview.png) <!-- Replace this path with your actual image path -->
+![Phoenix Screenshot](./public/assets/preview.png)
 
 ---
 
 ## 🛠 Tech Stack
 
-- **Frontend:** Vite + React
-- **Backend:** Node.js + Express
-- **Database:** MongoDB Atlas
-- **APIs:** LLM APIs (Gemini)
+* **Frontend:** [Vite](https://vitejs.dev/) + [React](https://reactjs.org/)
+* **Backend:** [Node.js](https://nodejs.org/) + [Express](https://expressjs.com/)
+* **Database:** [MongoDB Atlas](https://www.mongodb.com/atlas/database)
+* **API Integration:** via `.env` (e.g., LLM APIs like Gemini or DeepSeek)
 
 ---
 
-## 📁 Folder Structure
+## 📁 Project Structure
 
 ```
-
 phoenix/
-├── frontend/          # (Vite + React)
-├── backend/          # (Node.js + Express)
-├── .env             # Environment file (DO NOT COMMIT)
+├── frontend/        # React + Vite frontend
+├── backend/         # Node.js + Express backend
+├── .env             # Environment variables (DO NOT COMMIT)
 └── README.md
-
-````
+```
 
 ---
 
-## ⚙️ How to Run the Project
+## 🚀 Getting Started
 
-### 1. Clone the Repository
+Follow these steps to run Phoenix locally.
+
+### 1️⃣ Clone the Repository
 
 ```bash
 git clone https://github.com/Ananya-Yadav-Dev/phoenix.git
 cd phoenix
-````
+```
 
 ---
 
-### 2. Setup Backend
+### 2️⃣ Setup Backend
 
 ```bash
 cd backend
 npm install
 ```
 
-#### Create a `.env` file in the `backend/` directory:
+#### 🔐 Create `.env` in `backend/`
 
 ```env
 MONGO_URI=your_mongo_atlas_connection_string
 API_KEY=your_llm_api_key
-MODEL=deepseek/deepseek-r1:free  # Example model
+MODEL=deepseek/deepseek-r1:free   # Example model
 ```
 
-#### Run the backend server:
+#### ▶️ Run the Backend
 
 ```bash
 nodemon server.js
+# or use: npm run dev (if configured in package.json)
 ```
+
+Backend will run at: **[http://localhost:8080](http://localhost:8080)**
 
 ---
 
-### 3. Setup Frontend
+### 3️⃣ Setup Frontend
 
 ```bash
 cd ../frontend
 npm install
 ```
 
-
-#### Run the frontend:
+#### ▶️ Run the Frontend
 
 ```bash
 npm run dev
 ```
 
----
-
-Your app should now be running at:
-Frontend → `http://localhost:5173`
-Backend → `http://localhost:8080`
+Frontend will run at: **[http://localhost:5173](http://localhost:5173)**
 
 ---
 
-## 📝 Notes
+## ⚠️ Important Notes
 
-* Ensure MongoDB Atlas access is whitelisted for your IP.
-* Add `.env` files both in backend for local development.
+* Ensure your MongoDB Atlas cluster allows access from your current IP address.
+* Keep `.env` files secure and never commit them to version control.
+* The app uses LLM APIs like Gemini (via API key) – ensure usage complies with your chosen provider’s rate limits and terms.
+
+---
+
+## 💡 Features
+
+* 🔁 Multi-turn conversation support
+* 💬 LLM integration (Gemini, DeepSeek, etc.)
+* 📜 Persistent chat history via MongoDB
+* ⚡ Fast frontend with Vite
+* 🌐 RESTful API structure with Express
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please fork the repo and create a PR with a clear description of your changes.
 
 ---
 
