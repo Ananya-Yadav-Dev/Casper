@@ -1,9 +1,9 @@
 
-# 🔥 Phoenix - Your AI Chat Companion
+# 🐦‍🔥 Phoenix - Your AI Chat Companion
 
 Phoenix is a full-stack AI chatbot enabling users to engage in smart, multi-turn conversations powered by LLM APIs. Built using **Vite + React** on the frontend and **Node.js + Express** on the backend, it stores persistent chat history using **MongoDB Atlas**.
 
-![Phoenix Screenshot](./public/assets/preview.png)
+![Phoenix Screenshot](frontend/public/assets/preview.png)
 
 ---
 
