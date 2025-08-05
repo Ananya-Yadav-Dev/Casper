@@ -1,41 +1,19 @@
 import "dotenv/config";
-import fetch from "node-fetch";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const getOpenAIAPIResponse = async (message) => {
-  const options = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-    },
-    body: JSON.stringify({
-      model: "tngtech/deepseek-r1t2-chimera:free",
-      messages: [
-        {
-          role: "user",
-          content: message,
-        },
-      ],
-    }),
-  };
+const getGeminiAPIResponse = async (message) => {
+  const ai = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
   try {
-    const response = await fetch(
-      "https://openrouter.ai/api/v1/chat/completions",
-      options
-    );
-    const data = await response.json();
-    if (!data?.choices?.[0]?.message?.content) {
-      // console.error("OpenRouter returned no content", data);
-      console.log("OpenRouter FULL RESPONSE:", JSON.stringify(data, null, 2));
-      return null;
-    }
+    const model = ai.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-    return data.choices[0].message.content;
+    const result = await model.generateContent([message]);
+    const response = await result.response;
+    return response.text();
   } catch (err) {
-    console.error("OpenRouter fetch error:", err);
-    return null;
+    console.error("Gemini Error:", err);
+    return "Error from Gemini";
   }
 };
 
-export default getOpenAIAPIResponse;
+export default getGeminiAPIResponse;

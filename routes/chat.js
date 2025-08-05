@@ -1,21 +1,21 @@
 import express from "express";
 import Thread from "../models/Thread.js";
-import getOpenAIAPIResponse from "../utils/openai.js";
+import getGeminiAPIResponse from "../utils/openai.js";
 
 const router = express.Router();
 
-router.post("/test", async (req, res) => {
-  try {
-    let newThread = new Thread({
-      threadId: "cdij",
-    });
-    const data = await newThread.save();
-    console.log(data);
-    res.send(data);
-  } catch (err) {
-    res.status(500).json({ message: "Failed to save", error: err.message });
-  }
-});
+// router.post("/test", async (req, res) => {
+//   try {
+//     let newThread = new Thread({
+//       threadId: "cdij",
+//     });
+//     const data = await newThread.save();
+//     console.log(data);
+//     res.send(data);
+//   } catch (err) {
+//     res.status(500).json({ message: "Failed to save", error: err.message });
+//   }
+// });
 
 router.get("/threads", async (req, res) => {
   try {
@@ -35,7 +35,7 @@ router.get("/threads/:threadId", async (req, res) => {
     if (!thread) {
       return res.status(404).json({ message: "Thread not found" });
     }
-    res.json(thread);
+    res.json(thread.messages);
   } catch (err) {
     res.status(500).json({ message: "Thread not found", error: err.message });
   }
@@ -48,6 +48,7 @@ router.delete("/threads/:threadId", async (req, res) => {
     if (!deletedThread) {
       return res.status(404).json({ message: "Thread not found" });
     }
+    res.status(200).json({ message: "Thread deleted successfully", threadId });
   } catch (err) {
     res.status(500).json({ message: "Failed to delete", error: err.message });
   }
@@ -59,7 +60,6 @@ router.post("/chat", async (req, res) => {
   if (!threadId || !message) {
     return res.status(400).json({ error: "missing required fields" });
   }
-
   try {
     let thread = await Thread.findOne({ threadId });
     if (!thread) {
@@ -71,11 +71,10 @@ router.post("/chat", async (req, res) => {
     } else {
       thread.messages.push({ role: "user", content: message });
     }
-    const assistantReply = await getOpenAIAPIResponse(message);
+    const assistantReply = await getGeminiAPIResponse(message);
     if (!assistantReply) {
       return res.status(500).json({ error: "OpenAI returned no response" });
     }
-
     thread.messages.push({ role: "assistant", content: assistantReply });
     thread.updatedAt = new Date();
     await thread.save();
