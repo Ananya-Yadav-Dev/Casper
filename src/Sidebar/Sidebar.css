@@ -9,7 +9,7 @@
 }
 
 .logo{
-    width:136px;
+    width:120px;
     padding: 24px;
     display: block;
     margin: 0 auto;
@@ -17,12 +17,14 @@
 
 button{
     color: #171717;
+    font-size: 14px;
+    font-weight: 550;
     background-color: #39b0eb;
     border: none;
-    padding: 8px 10px;
+    padding: 8px 14px;
     display: block;
     margin: 0 auto;
-    border-radius: 12px;
+    border-radius: 14px;
     cursor: pointer;
     max-width: fit-content;
     border-radius: 5px;
@@ -30,6 +32,10 @@ button{
 
 button p{
     color: #39b0eb;
+}
+
+button:hover{
+    background-color: #699fbc;
 }
 
 h5{
@@ -44,6 +50,7 @@ h5{
     margin: 0 10px;
     padding: 0;
     height: 100%;
+    overflow-y: scroll;
 }
 
 .history li{
